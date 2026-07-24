@@ -15,7 +15,6 @@ pygame.display.set_caption("Pong")
 # Variables
 player1_y = 250
 player2_y = 250
-keys = pygame.key.get_pressed()
 ball_speed_x = 5
 ball_speed_y = 5
 ball_x = 390
@@ -41,13 +40,13 @@ while running:
     # 6. Game Logic Updates
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w] and player1_y > 0:
-        player1_y = player1_y - 5
+        player1_y = player1_y - 7
     if keys[pygame.K_s] and player1_y < 510:
-        player1_y = player1_y + 5
+        player1_y = player1_y + 7
     if keys[pygame.K_UP] and player2_y > 0:
-        player2_y = player2_y - 5
+        player2_y = player2_y - 7
     if keys[pygame.K_DOWN] and player2_y < 510:
-        player2_y = player2_y + 5
+        player2_y = player2_y + 7
     
     left_paddle = pygame.Rect(30, player1_y, 15, 90)
     right_paddle = pygame.Rect(755, player2_y, 15, 90)
@@ -62,7 +61,7 @@ while running:
 
     ball_x += ball_speed_x
     ball_y += ball_speed_y
-    if ball_y <= 0 or ball_y >=585:
+    if ball_y <= 0 or ball_y >= 585:
         ball_speed_y = ball_speed_y * -1
         
     # Score
@@ -88,7 +87,7 @@ while running:
     
     # Left Paddle Collision
     if ball_rect.colliderect(left_paddle) and ball_speed_x < 0:
-        ball_speed_x = ball_speed_x * -1.05  
+        ball_speed_x = ball_speed_x * -1.05
         ball_speed_y = ball_speed_y * 1.05
         
         # Right Speed Limit
@@ -98,13 +97,13 @@ while running:
 
     # Right Paddle Collision
     if ball_rect.colliderect(right_paddle) and ball_speed_x > 0:
-        ball_speed_x = ball_speed_x * -1.01  
-        ball_speed_y = ball_speed_y * 1.01
+        ball_speed_x = ball_speed_x * -1.06 
+        ball_speed_y = ball_speed_y * 1.06
         
         # Left Speed Limit
-        if ball_speed_x < -7: ball_speed_x = -7
-        if ball_speed_y > 7: ball_speed_y = 7
-        if ball_speed_y < -7: ball_speed_y = -7
+        if ball_speed_x < -10: ball_speed_x = -10
+        if ball_speed_y > 10: ball_speed_y = 10
+        if ball_speed_y < -10: ball_speed_y = -10
 
     # 7. Drawing and Rendering
     screen.fill((0, 0, 0))  # Clear screen with black background
@@ -140,3 +139,4 @@ while running:
 time.sleep(3)
 pygame.quit()
 sys.exit()
+
