@@ -1,1 +1,1 @@
-This is a simple pong game I made with pygame. Make sure you download the .ttf file otherwise it won't work.
+This is a simple pong game I made with pygame. Make sure you download the .ttf file otherwise it won't work. For the troll version, left shift will trigger a win for player 1, (W and S) and right shift will trigger a win for player 2. (PgUp, PgDn)
